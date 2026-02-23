@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0d0d0d">
+<title>Yangi Yilda Maqsadlaringizga Erishing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #e02020;
+    --red-dark: #b01515;
+    --bg: #0f0f0f;
+    --card: #181818;
+    --text: #ffffff;
+    --muted: #aaaaaa;
+    --font: 'Montserrat', sans-serif;
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP BADGE ── */
+  .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 18px auto 0;
+    width: fit-content;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 50px;
+    padding: 7px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #ddd;
+    letter-spacing: 0.3px;
+  }
+  .badge-dot {
+    width: 8px; height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(1.3); }
+  }
+
+  /* ── HERO ── */
+  .hero { padding: 18px 20px 0; text-align: center; }
+
+  .hero h1 {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.15;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 span { color: var(--red); }
+
+  .hero p {
+    font-size: 14.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.4;
+    margin-top: 10px;
+    letter-spacing: 0.3px;
+    color: #e8e8e8;
+  }
+
+  /* ── CTA BANNER ── */
+  .cta-banner {
+    margin: 18px 20px 0;
+    background: var(--red);
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .cta-banner:hover { background: var(--red-dark); }
+
+  /* ── PERSON SECTION ── */
+  .person-section {
+    position: relative;
+    margin-top: 10px;
+    min-height: 270px;
+    overflow: hidden;
+  }
+  .person-bg {
+    position: absolute;
+    right: -30px;
+    bottom: 0;
+    width: 260px;
+    height: 270px;
+    background: radial-gradient(ellipse at 60% 80%, #5a0000 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .person-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 220px;
+    height: 260px;
+    object-fit: cover;
+    object-position: top;
+  }
+  /* Placeholder person silhouette */
+  .person-placeholder {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    width: 200px;
+    height: 260px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .person-placeholder svg { width: 100%; height: 100%; }
+
+  .bullet-list {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 55%;
+  }
+  .bullet-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .bullet-item {
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #ccc;
+    position: relative;
+    padding-left: 14px;
+  }
+  .bullet-item::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+  }
+  .bullet-item strong { color: #fff; }
+
+  /* ── TIMER ── */
+  .timer-wrap {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .timer-box {
+    background: #fff;
+    color: #000;
+    font-size: 28px;
+    font-weight: 900;
+    border-radius: 10px;
+    padding: 10px 18px;
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .timer-label { font-size: 12px; color: var(--muted); }
+
+  /* ── MAIN BUTTON ── */
+  .main-btn {
+    display: block;
+    margin: 16px 20px 0;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 50px;
+    padding: 18px 20px;
+    width: calc(100% - 40px);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    position: relative;
+    overflow: hidden;
+  }
+  .main-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: shimmer 2.5s infinite;
+  }
+  @keyframes shimmer { to { transform: translateX(100%); } }
+  .main-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .main-btn:active { transform: translateY(0); }
+
+  .hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 10px 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .hint svg { transform: rotate(15deg); }
+
+  /* ── MODAL ── */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+    backdrop-filter: blur(4px);
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .overlay.open { display: flex; }
+
+  .modal {
+    background: #1a1a1a;
+    border-radius: 24px 24px 0 0;
+    padding: 30px 24px 36px;
+    width: 100%;
+    max-width: 480px;
+    animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+
+  .modal-handle {
+    width: 40px; height: 4px;
+    background: #444;
+    border-radius: 2px;
+    margin: 0 auto 20px;
+  }
+
+  .modal h2 {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .modal p {
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .phone-input-wrap {
+    display: flex;
+    align-items: center;
+    background: #252525;
+    border: 1.5px solid #333;
+    border-radius: 12px;
+    padding: 0 16px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s;
+  }
+  .phone-input-wrap:focus-within { border-color: var(--red); }
+  .flag { font-size: 20px; margin-right: 8px; }
+  .prefix { color: #aaa; font-size: 15px; font-weight: 600; margin-right: 4px; white-space: nowrap; }
+  .phone-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: var(--font);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 0;
+    width: 100%;
+  }
+  .phone-input::placeholder { color: #555; }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .submit-btn:hover { background: var(--red-dark); }
+  .submit-btn:disabled { background: #555; cursor: not-allowed; }
+
+  /* ── SUCCESS MODAL ── */
+  .success-block {
+    display: none;
+    text-align: center;
+  }
+  .success-block.show { display: block; }
+  .check-icon {
+    width: 64px; height: 64px;
+    background: #1a3a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 30px;
+  }
+  .tg-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #229ED9;
+    color: #fff;
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 16px;
+    transition: background 0.2s;
+  }
+  .tg-btn:hover { background: #1a85b8; }
+
+  .error-msg {
+    color: var(--red);
+    font-size: 12px;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- BADGE -->
+<div class="badge">
+  <span class="badge-dot"></span>
+  24-25-dekabr | Soat 20:00
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>QANDAY QILIB <span>YANGI YILDA</span></h1>
+  <p>ZARARLI ODATLARDAN QUTILISH VA O'Z MAQSADINGIZGA INTIZOM BILAN ERISHISH MUMKIN?</p>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner" onclick="openModal()">
+  2 kunlik BEPUL Onlayn darsimda<br>barcha sirlarini o'rganing
+</div>
+
+<!-- PERSON + BULLETS -->
+<div class="person-section">
+  <div class="person-bg"></div>
+
+  <!-- Bullet points -->
+  <div class="bullet-list">
+    <div class="bullet-label">Bepul darsda siz:</div>
+    <div class="bullet-item">Qanday qilib <strong>2026 yil uchun</strong> to'g'ri va aniq maqsad qo'yishning yangi usulini</div>
+    <div class="bullet-item">Qanday qilib <strong>dangasalikni yengib,</strong> istalgan maqsadga kuchli intizom bilan erishish qadamlarini</div>
+    <div class="bullet-item"><strong>2026-yilda</strong> yaxshi odatlarni shakllantirib, istalgan ko'nikmani <strong>10 baravar tezroq o'rganish</strong> usullarini ko'rib chiqamiz</div>
+  </div>
+
+  <!-- SVG Person silhouette -->
+  <div class="person-placeholder">
+    <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Glow -->
+      <ellipse cx="140" cy="260" rx="90" ry="30" fill="#5a0000" opacity="0.5"/>
+      <!-- Body (suit) -->
+      <rect x="55" y="120" width="110" height="160" rx="12" fill="#1a1a1a"/>
+      <!-- Jacket left -->
+      <path d="M55 130 L80 120 L100 200 L55 210 Z" fill="#252525"/>
+      <!-- Jacket right -->
+      <path d="M145 130 L120 120 L100 200 L145 210 Z" fill="#252525"/>
+      <!-- Shirt / tie area -->
+      <rect x="90" y="120" width="20" height="80" rx="4" fill="#e02020" opacity="0.8"/>
+      <!-- Head -->
+      <ellipse cx="100" cy="80" rx="40" ry="45" fill="#c8a882"/>
+      <!-- Hair -->
+      <ellipse cx="100" cy="45" rx="38" ry="22" fill="#1a1209"/>
+      <!-- Eyes -->
+      <ellipse cx="87" cy="80" rx="5" ry="6" fill="#1a1209"/>
+      <ellipse cx="113" cy="80" rx="5" ry="6" fill="#1a1209"/>
+      <!-- Eyebrows -->
+      <rect x="80" y="68" width="14" height="3" rx="2" fill="#0d0d0d"/>
+      <rect x="106" y="68" width="14" height="3" rx="2" fill="#0d0d0d"/>
+      <!-- Nose -->
+      <ellipse cx="100" cy="92" rx="4" ry="5" fill="#b8906a"/>
+      <!-- Mouth -->
+      <path d="M88 102 Q100 110 112 102" stroke="#8a5a3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Hand on chin -->
+      <ellipse cx="90" cy="105" rx="10" ry="7" fill="#c8a882"/>
+      <!-- Neck -->
+      <rect x="88" y="118" width="24" height="10" rx="4" fill="#c8a882"/>
+    </svg>
+  </div>
+</div>
+
+<!-- TIMER -->
+<div class="timer-wrap">
+  <div class="timer-box" id="timer">00:00</div>
+  <div class="timer-label">Ro'yxatdan o'tish<br>yopilishiga qoldi</div>
+</div>
+
+<!-- MAIN BUTTON -->
+<button class="main-btn" onclick="openModal()">BEPUL QATNASHISH &gt;&gt;</button>
+
+<div class="hint">
+  BEPUL qatnashish uchun bosing
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7"/>
+  </svg>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-handle"></div>
+
+    <!-- Phone form -->
+    <div id="formBlock">
+      <h2>📱 Raqamingizni kiriting</h2>
+      <p>Darsga ro'yxatdan o'tish uchun telefon raqamingizni kiriting</p>
+
+      <div class="phone-input-wrap">
+        <span class="flag">🇺🇿</span>
+        <span class="prefix">+998</span>
+        <input
+          type="tel"
+          class="phone-input"
+          id="phoneInput"
+          placeholder="90 123 45 67"
+          maxlength="12"
+          inputmode="numeric"
+          oninput="formatPhone(this)"
+        >
+      </div>
+      <div class="error-msg" id="errorMsg">To'g'ri telefon raqamini kiriting</div>
+
+      <button class="submit-btn" onclick="submitPhone()">Ro'yxatdan o'tish →</button>
+    </div>
+
+    <!-- Success -->
+    <div class="success-block" id="successBlock">
+      <div class="check-icon">✅</div>
+      <h2>Siz ro'yxatdan o'tdingiz!</h2>
+      <p>Endi Telegram kanalimizga qo'shiling — dars havolasi u yerda yuboriladi</p>
+      <a class="tg-btn" href="https://t.me/your_channel" target="_blank" id="tgLink">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943l.212.114z"/></svg>
+        Telegram kanalga qo'shilish
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── COUNTDOWN ──
+  // 2 soat 30 daqiqa
+  let totalSeconds = 2 * 3600 + 30 * 60;
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    if (totalSeconds <= 0) { document.getElementById('timer').textContent = '00:00'; return; }
+    totalSeconds--;
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    const s = totalSeconds % 60;
+    document.getElementById('timer').textContent = h > 0
+      ? `${pad(h)}:${pad(m)}:${pad(s)}`
+      : `${pad(m)}:${pad(s)}`;
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // ── MODAL ──
+  function openModal() {
+    document.getElementById('overlay').classList.add('open');
+    setTimeout(() => document.getElementById('phoneInput').focus(), 350);
+  }
+  function closeModal() {
+    document.getElementById('overlay').classList.remove('open');
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('overlay')) closeModal();
+  }
+
+  // ── PHONE FORMAT ──
+  function formatPhone(el) {
+    let v = el.value.replace(/\D/g, '').substring(0, 9);
+    let out = '';
+    if (v.length > 0) out = v.substring(0, 2);
+    if (v.length > 2) out += ' ' + v.substring(2, 5);
+    if (v.length > 5) out += ' ' + v.substring(5, 7);
+    if (v.length > 7) out += ' ' + v.substring(7, 9);
+    el.value = out;
+    document.getElementById('errorMsg').style.display = 'none';
+  }
+
+  // ── SUBMIT ──
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxeDIu3I1geF1Rhd_8h90OYobftqqb3e744Tr6Lp03SFNbJc1iN629hu9QZwHaYix_4BA/exec';
+
+  async function submitPhone() {
+    const raw = document.getElementById('phoneInput').value.replace(/\D/g, '');
+    if (raw.length < 9) {
+      document.getElementById('errorMsg').style.display = 'block';
+      return;
+    }
+    const fullNumber = '+998' + raw;
+    const btn = document.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Yuborilmoqda...';
+
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone: fullNumber, date: new Date().toLocaleString('uz-UZ') })
+      });
+    } catch(e) { /* silent */ }
+
+    // Show success regardless (no-cors doesn't return response)
+    document.getElementById('formBlock').style.display = 'none';
+    document.getElementById('successBlock').classList.add('show');
+  }
+</script>
+</body>
+</html>
