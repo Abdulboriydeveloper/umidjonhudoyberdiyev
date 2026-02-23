@@ -529,29 +529,25 @@
   // ── SUBMIT ──
   const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxeDIu3I1geF1Rhd_8h90OYobftqqb3e744Tr6Lp03SFNbJc1iN629hu9QZwHaYix_4BA/exec';
 
-  async function submitPhone() {
+  function submitPhone() {
     const raw = document.getElementById('phoneInput').value.replace(/\D/g, '');
     if (raw.length < 9) {
       document.getElementById('errorMsg').style.display = 'block';
       return;
     }
     const fullNumber = '+998' + raw;
-    const btn = document.querySelector('.submit-btn');
-    btn.disabled = true;
-    btn.textContent = 'Yuborilmoqda...';
 
-    try {
-      await fetch(SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone: fullNumber, date: new Date().toLocaleString('uz-UZ') })
-      });
-    } catch(e) { /* silent */ }
-
-    // Show success regardless (no-cors doesn't return response)
+    // Darhol success ko\'rsat
     document.getElementById('formBlock').style.display = 'none';
     document.getElementById('successBlock').classList.add('show');
+
+    // Orqa fonda yuborish
+    fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone: fullNumber, date: new Date().toLocaleString('uz-UZ') })
+    }).catch(() => {});
   }
 </script>
 </body>
