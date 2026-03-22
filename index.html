@@ -9,12 +9,12 @@
 <link rel="preload" href="umidaka2.webp" as="image" type="image/webp">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--red:#e02020;--bg:#0f0f0f;--text:#fff;--muted:#bbb;--font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
-html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;overflow-x:hidden}
+:root{--red:#e02020;--bg:#0f0f0f;--font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
+html,body{background:var(--bg);color:#fff;font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;overflow-x:hidden}
 
 .badge{display:flex;align-items:center;justify-content:center;gap:8px;margin:18px auto 0;width:fit-content;background:#1e1e1e;border:1px solid #444;border-radius:50px;padding:7px 18px;font-size:13px;font-weight:600;color:#ddd}
-.badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite;will-change:opacity,transform}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
 .hero{padding:18px 20px 0;text-align:center}
 .hero h1{font-size:30px;font-weight:900;line-height:1.15;text-transform:uppercase;letter-spacing:-.5px}
@@ -30,28 +30,26 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
 .bullet-list{position:absolute;left:20px;top:10px;width:55%;z-index:1}
 .bullet-label{font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;color:#ddd}
 .bullet-item{margin-bottom:14px;font-size:12.5px;line-height:1.5;color:#ccc;position:relative;padding-left:14px}
-.bullet-item::before{content:"—";position:absolute;left:0;color:var(--muted)}
+.bullet-item::before{content:"—";position:absolute;left:0;color:#bbb}
 .bullet-item strong{color:#fff}
 
 .timer-wrap{margin:0 20px;display:flex;align-items:center;gap:12px}
 .timer-box{background:#fff;color:#000;font-size:28px;font-weight:900;border-radius:10px;padding:10px 18px;letter-spacing:2px;font-variant-numeric:tabular-nums}
-.timer-label{font-size:12px;color:var(--muted);line-height:1.5}
+.timer-label{font-size:12px;color:#bbb;line-height:1.5}
 
-.main-btn{display:block;margin:16px 20px 0;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:50px;padding:18px 20px;width:calc(100% - 40px);cursor:pointer;will-change:transform;animation:shake 2.5s ease-in-out infinite}
-.main-btn:active{opacity:.9}
-@keyframes shake{0%,85%,100%{transform:translateX(0)}88%{transform:translateX(-6px)}91%{transform:translateX(6px)}94%{transform:translateX(-4px)}97%{transform:translateX(4px)}}
+.main-btn{display:block;margin:16px 20px 0;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:50px;padding:18px 20px;width:calc(100% - 40px);cursor:pointer;animation:shake 2.5s ease-in-out infinite}
+@keyframes shake{0%,85%,100%{transform:translateX(0)}88%{transform:translateX(-5px)}91%{transform:translateX(5px)}94%{transform:translateX(-3px)}97%{transform:translateX(3px)}}
 
-.hint{text-align:center;font-size:12px;color:var(--muted);margin:10px 0 24px;display:flex;align-items:center;justify-content:center;gap:6px}
-.hint svg{transform:rotate(-90deg);animation:arrowUp 1s ease-in-out infinite;will-change:transform}
+.hint{text-align:center;font-size:12px;color:#bbb;margin:10px 0 24px;display:flex;align-items:center;justify-content:center;gap:6px}
+.hint svg{transform:rotate(-90deg);animation:arrowUp 1s ease-in-out infinite}
 @keyframes arrowUp{0%,100%{transform:rotate(-90deg) translateX(0)}50%{transform:rotate(-90deg) translateX(-5px)}}
 
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;align-items:center;justify-content:center;padding:20px}
 .overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;padding:28px 24px 32px;width:100%;max-width:420px;position:relative;animation:popIn .2s ease-out}
+@keyframes popIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
 
-.modal{background:#fff;border-radius:20px;padding:28px 24px 32px;width:100%;max-width:420px;animation:popIn .25s cubic-bezier(.34,1.4,.64,1);position:relative}
-@keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
-
-.close-btn{position:absolute;top:14px;right:16px;background:none;border:none;color:#444;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.close-btn{position:absolute;top:10px;right:12px;background:none;border:none;color:#333;font-size:24px;cursor:pointer;padding:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%}
 
 .form-title{font-size:22px;font-weight:900;color:#111;text-transform:uppercase;margin-bottom:6px}
 .form-sub{font-size:13px;color:#555;margin-bottom:20px;line-height:1.5}
@@ -60,34 +58,31 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
 .phone-input-wrap{display:flex;align-items:center;border:2px solid #e0a800;border-radius:12px;padding:0 16px;margin-bottom:16px;background:#f9f9f9}
 .phone-input-wrap:focus-within{border-color:var(--red)}
 .flag{font-size:18px;margin-right:6px}
-.prefix-txt{font-size:15px;font-weight:700;color:#222;padding:14px 4px 14px 0}
+.prefix-txt{font-size:15px;font-weight:700;color:#222;padding:14px 4px}
 .divider{width:1px;height:24px;background:#ddd;margin:0 10px;flex-shrink:0}
 .phone-input{background:none;border:none;outline:none;color:#111;font-family:var(--font);font-size:16px;font-weight:600;padding:14px 0;width:100%}
 .phone-input::placeholder{color:#888}
-
-.submit-btn{width:100%;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border:none;border-radius:50px;padding:18px;cursor:pointer}
+.submit-btn{width:100%;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;border:none;border-radius:50px;padding:18px;cursor:pointer}
 .error-msg{color:#c00;font-size:13px;font-weight:600;margin-top:-10px;margin-bottom:12px;display:none}
 
 .success-block{display:none;text-align:center}
 .success-block.show{display:block}
-
 .steps{display:flex;align-items:center;justify-content:center;margin-bottom:24px}
 .step{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff}
 .step.done{background:var(--red);color:#fff}
 .step-line{width:40px;height:2.5px;background:var(--red)}
-
 .success-title{font-size:20px;font-weight:900;color:#111;margin-bottom:8px}
 .success-sub{font-size:13px;color:#444;margin-bottom:24px;line-height:1.6}
 
 .arrows{display:flex;justify-content:center;gap:6px;margin-bottom:20px}
-.arrows span{color:var(--red);font-size:20px;animation:arrowDown 1s ease-in-out infinite;will-change:transform,opacity}
+.arrows span{color:var(--red);font-size:20px;animation:arrowDown 1s ease-in-out infinite}
 .arrows span:nth-child(2){animation-delay:.15s}
 .arrows span:nth-child(3){animation-delay:.3s}
 .arrows span:nth-child(4){animation-delay:.45s}
 .arrows span:nth-child(5){animation-delay:.6s}
 @keyframes arrowDown{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:1}}
 
-.tg-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ED9;color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-decoration:none;border-radius:50px;padding:18px 20px;will-change:transform;animation:shake 2s ease-in-out infinite}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ED9;color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-decoration:none;border-radius:50px;padding:18px 20px;animation:shake 2s ease-in-out infinite}
 </style>
 </head>
 <body>
@@ -153,9 +148,7 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
           oninput="formatPhone(this)"
           aria-label="Telefon raqami, +998 dan keyin">
       </div>
-      <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive">
-        To'g'ri telefon raqamini kiriting
-      </div>
+      <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive">To'g'ri telefon raqamini kiriting</div>
       <button class="submit-btn" onclick="submitPhone()">YUBORISH</button>
     </div>
 
@@ -165,7 +158,7 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
         <div class="step-line"></div>
         <div class="step done" aria-label="2-qadam bajarildi">&#10003;</div>
         <div class="step-line"></div>
-        <div class="step" aria-label="3-qadam, hozirgi">3</div>
+        <div class="step" aria-label="3-qadam">3</div>
       </div>
       <p class="success-title">So'nggi qadam...</p>
       <p class="success-sub">Masterklassda qatnashish uchun, yopiq telegram<br>kanalimizga obuna bo'ling!</p>
@@ -181,18 +174,21 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
 </div>
 
 <script>
+// TIMER
 var s=120,timerEl=document.getElementById('timer');
 function pad(n){return String(n).padStart(2,'0')}
 function tick(){if(s<=0){timerEl.textContent='00:00';return}s--;timerEl.textContent=pad(Math.floor(s/60))+':'+pad(s%60)}
 tick();setInterval(tick,1000);
 
+// MODAL
 var overlay=document.getElementById('overlay');
-function openModal(){overlay.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){document.getElementById('phoneInput').focus()},300)}
+function openModal(){overlay.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){document.getElementById('phoneInput').focus()},250)}
 function closeModal(){overlay.classList.remove('open');document.body.style.overflow=''}
 overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
 document.body.addEventListener('click',function(e){if(!overlay.classList.contains('open'))openModal()});
 
+// PHONE
 function formatPhone(el){
   var v=el.value.replace(/\D/g,'').substring(0,9),out='';
   if(v.length>0)out=v.substring(0,2);
@@ -203,6 +199,7 @@ function formatPhone(el){
   document.getElementById('errorMsg').style.display='none';
 }
 
+// SUBMIT
 var SHEET_URL='https://script.google.com/macros/s/AKfycbxeDIu3I1geF1Rhd_8h90OYobftqqb3e744Tr6Lp03SFNbJc1iN629hu9QZwHaYix_4BA/exec';
 function submitPhone(){
   var raw=document.getElementById('phoneInput').value.replace(/\D/g,'');
@@ -214,11 +211,19 @@ function submitPhone(){
   }).catch(function(){});
 }
 
-// Meta Pixel — sahifa yuklangandan keyin (LCP ga ta'sir qilmasin)
-window.addEventListener('load',function(){
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+// META PIXEL — foydalanuvchi birinchi harakat qilgandan keyin yuklanadi
+var pixelLoaded=false;
+function loadPixel(){
+  if(pixelLoaded)return;pixelLoaded=true;
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.defer=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init','929040389510053');fbq('track','PageView');
+}
+// Sahifaga birinchi touch/click/scroll da yuklash
+['touchstart','mousedown','scroll'].forEach(function(ev){
+  document.addEventListener(ev,loadPixel,{once:true,passive:true});
 });
+// Yoki 5 soniyadan keyin baribir yuklasin
+setTimeout(loadPixel,5000);
 </script>
 </body>
 </html>
