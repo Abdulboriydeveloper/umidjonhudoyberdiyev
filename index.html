@@ -7,23 +7,15 @@
 <meta name="description" content="2 kunlik BEPUL Onlayn darsda qarzlardan qutilib moliyaviy mustaqillikka erishing">
 <title>Qarzlardan Qutilib Moliyaviy Mustaqillikka Erishing</title>
 <link rel="preload" href="umidaka2.webp" as="image" type="image/webp">
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','929040389510053');fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=929040389510053&ev=PageView&noscript=1"/></noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--red:#e02020;--bg:#0f0f0f;--text:#fff;--muted:#bbb;--font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
 html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;overflow-x:hidden}
 
-/* BADGE */
 .badge{display:flex;align-items:center;justify-content:center;gap:8px;margin:18px auto 0;width:fit-content;background:#1e1e1e;border:1px solid #444;border-radius:50px;padding:7px 18px;font-size:13px;font-weight:600;color:#ddd}
-.badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
+.badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite;will-change:opacity,transform}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
 
-/* HERO */
 .hero{padding:18px 20px 0;text-align:center}
 .hero h1{font-size:30px;font-weight:900;line-height:1.15;text-transform:uppercase;letter-spacing:-.5px}
 .hero h1 span{color:var(--red)}
@@ -31,88 +23,71 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
 
 .cta-banner{margin:18px 20px 0;background:var(--red);border-radius:12px;padding:14px 20px;text-align:center;font-size:14.5px;font-weight:700;line-height:1.5;cursor:pointer;border:none;width:calc(100% - 40px);color:#fff;font-family:var(--font);display:block}
 
-/* PERSON */
 .person-section{position:relative;margin-top:10px;min-height:270px;overflow:hidden}
 .person-bg{position:absolute;right:-30px;bottom:0;width:260px;height:270px;background:radial-gradient(ellipse at 60% 80%,#5a0000 0%,transparent 70%);border-radius:50%}
 .person-placeholder{position:absolute;right:10px;bottom:0;width:200px;height:260px}
 .person-placeholder img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .bullet-list{position:absolute;left:20px;top:10px;width:55%;z-index:1}
-.bullet-label{font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;}
+.bullet-label{font-size:12px;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;color:#ddd}
 .bullet-item{margin-bottom:14px;font-size:12.5px;line-height:1.5;color:#ccc;position:relative;padding-left:14px}
 .bullet-item::before{content:"—";position:absolute;left:0;color:var(--muted)}
 .bullet-item strong{color:#fff}
 
-/* TIMER */
 .timer-wrap{margin:0 20px;display:flex;align-items:center;gap:12px}
 .timer-box{background:#fff;color:#000;font-size:28px;font-weight:900;border-radius:10px;padding:10px 18px;letter-spacing:2px;font-variant-numeric:tabular-nums}
 .timer-label{font-size:12px;color:var(--muted);line-height:1.5}
 
-/* MAIN BTN shake */
-.main-btn{display:block;margin:16px 20px 0;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:50px;padding:18px 20px;width:calc(100% - 40px);cursor:pointer;animation:shake 2.5s ease-in-out infinite}
+.main-btn{display:block;margin:16px 20px 0;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:50px;padding:18px 20px;width:calc(100% - 40px);cursor:pointer;will-change:transform;animation:shake 2.5s ease-in-out infinite}
 .main-btn:active{opacity:.9}
 @keyframes shake{0%,85%,100%{transform:translateX(0)}88%{transform:translateX(-6px)}91%{transform:translateX(6px)}94%{transform:translateX(-4px)}97%{transform:translateX(4px)}}
 
 .hint{text-align:center;font-size:12px;color:var(--muted);margin:10px 0 24px;display:flex;align-items:center;justify-content:center;gap:6px}
-.hint svg{
-  transform: rotate(-90deg);
-  animation: bounce 1s ease-in-out infinite;
-}
-@keyframes bounce{
-  0%,100%{transform:rotate(-90deg) translateX(0)}
-  50%{transform:rotate(-90deg) translateX(-5px)}
-}
+.hint svg{transform:rotate(-90deg);animation:arrowUp 1s ease-in-out infinite;will-change:transform}
+@keyframes arrowUp{0%,100%{transform:rotate(-90deg) translateX(0)}50%{transform:rotate(-90deg) translateX(-5px)}}
 
-/* OVERLAY — centered */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;align-items:center;justify-content:center;padding:20px}
 .overlay.open{display:flex}
 
-/* MODAL — centered card */
 .modal{background:#fff;border-radius:20px;padding:28px 24px 32px;width:100%;max-width:420px;animation:popIn .25s cubic-bezier(.34,1.4,.64,1);position:relative}
 @keyframes popIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
 
-.close-btn{position:absolute;top:14px;right:16px;background:none;border:none;color:#999;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px}
+.close-btn{position:absolute;top:14px;right:16px;background:none;border:none;color:#444;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center}
 
-/* FORM BLOCK */
 .form-title{font-size:22px;font-weight:900;color:#111;text-transform:uppercase;margin-bottom:6px}
-.form-sub{font-size:13px;color:#777;margin-bottom:20px}
+.form-sub{font-size:13px;color:#555;margin-bottom:20px;line-height:1.5}
 .field-label{font-size:13px;font-weight:600;color:#333;margin-bottom:6px;display:block}
 
 .phone-input-wrap{display:flex;align-items:center;border:2px solid #e0a800;border-radius:12px;padding:0 16px;margin-bottom:16px;background:#f9f9f9}
 .phone-input-wrap:focus-within{border-color:var(--red)}
 .flag{font-size:18px;margin-right:6px}
-.prefix-select{background:none;border:none;outline:none;font-size:15px;font-weight:700;color:#222;cursor:pointer;padding:14px 4px 14px 0}
-.divider{width:1px;height:24px;background:#ddd;margin:0 10px}
-.phone-input{background:none;border:none;outline:none;color:#222;font-family:var(--font);font-size:16px;font-weight:600;padding:14px 0;width:100%}
-.phone-input::placeholder{color:#aaa}
+.prefix-txt{font-size:15px;font-weight:700;color:#222;padding:14px 4px 14px 0}
+.divider{width:1px;height:24px;background:#ddd;margin:0 10px;flex-shrink:0}
+.phone-input{background:none;border:none;outline:none;color:#111;font-family:var(--font);font-size:16px;font-weight:600;padding:14px 0;width:100%}
+.phone-input::placeholder{color:#888}
 
 .submit-btn{width:100%;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;border:none;border-radius:50px;padding:18px;cursor:pointer}
-.error-msg{color:#e02020;font-size:12px;font-weight:600;margin-top:-10px;margin-bottom:12px;display:none}
+.error-msg{color:#c00;font-size:13px;font-weight:600;margin-top:-10px;margin-bottom:12px;display:none}
 
-/* SUCCESS BLOCK */
 .success-block{display:none;text-align:center}
 .success-block.show{display:block}
 
-/* Steps */
-.steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:24px}
-.step{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff;position:relative;z-index:1}
-.step.done{background:var(--red);color:#fff;border-color:var(--red)}
+.steps{display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.step{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff}
+.step.done{background:var(--red);color:#fff}
 .step-line{width:40px;height:2.5px;background:var(--red)}
 
 .success-title{font-size:20px;font-weight:900;color:#111;margin-bottom:8px}
-.success-sub{font-size:13px;color:#666;margin-bottom:24px;line-height:1.5}
+.success-sub{font-size:13px;color:#444;margin-bottom:24px;line-height:1.6}
 
-/* Arrows */
 .arrows{display:flex;justify-content:center;gap:6px;margin-bottom:20px}
-.arrows span{color:var(--red);font-size:20px;animation:arrowBounce 1s ease-in-out infinite}
+.arrows span{color:var(--red);font-size:20px;animation:arrowDown 1s ease-in-out infinite;will-change:transform,opacity}
 .arrows span:nth-child(2){animation-delay:.15s}
 .arrows span:nth-child(3){animation-delay:.3s}
 .arrows span:nth-child(4){animation-delay:.45s}
 .arrows span:nth-child(5){animation-delay:.6s}
-@keyframes arrowBounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:1}}
+@keyframes arrowDown{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:1}}
 
-/* TG btn shake */
-.tg-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ED9;color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-decoration:none;border-radius:50px;padding:18px 20px;animation:shake 2s ease-in-out infinite}
-.tg-btn:active{opacity:.9}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ED9;color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-decoration:none;border-radius:50px;padding:18px 20px;will-change:transform;animation:shake 2s ease-in-out infinite}
 </style>
 </head>
 <body>
@@ -148,8 +123,8 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
   </section>
 
   <div class="timer-wrap">
-    <div class="timer-box" id="timer" aria-live="polite">02:00</div>
-    <p class="timer-label">Ro'yxatdan o'tish yopilishiga qoldi</p>
+    <div class="timer-box" id="timer" aria-live="polite" aria-label="Qolgan vaqt">02:00</div>
+    <p class="timer-label">Ro'yxatdan o'tish<br>yopilishiga qoldi</p>
   </div>
 
   <button class="main-btn" onclick="openModal()">BEPUL QATNASHISH</button>
@@ -160,52 +135,44 @@ html,body{background:var(--bg);color:var(--text);font-family:var(--font);min-hei
   </div>
 </main>
 
-<!-- MODAL -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
     <button class="close-btn" onclick="closeModal()" aria-label="Yopish">&#215;</button>
 
-    <!-- FORM -->
     <div id="formBlock">
-      <p class="form-title">RO'YXATDAN O'TISH</p>
+      <p class="form-title" id="modalTitle">RO'YXATDAN O'TISH</p>
       <p class="form-sub">Bepul darsda qatnashish uchun hoziroq ro'yxatdan o'ting</p>
-
       <label class="field-label" for="phoneInput">Telefon raqam</label>
       <div class="phone-input-wrap">
         <span class="flag" aria-hidden="true">🇺🇿</span>
-        <select class="prefix-select" aria-label="Mamlakat kodi">
-          <option>+998 &#8964;</option>
-        </select>
-        <div class="divider"></div>
+        <span class="prefix-txt" aria-hidden="true">+998</span>
+        <div class="divider" aria-hidden="true"></div>
         <input type="tel" class="phone-input" id="phoneInput"
           placeholder="90 123 45 67" maxlength="12"
           inputmode="numeric" autocomplete="tel"
           oninput="formatPhone(this)"
-          aria-label="Telefon raqami">
+          aria-label="Telefon raqami, +998 dan keyin">
       </div>
-      <div class="error-msg" id="errorMsg" role="alert">To'g'ri telefon raqamini kiriting</div>
+      <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive">
+        To'g'ri telefon raqamini kiriting
+      </div>
       <button class="submit-btn" onclick="submitPhone()">YUBORISH</button>
     </div>
 
-    <!-- SUCCESS -->
     <div class="success-block" id="successBlock" aria-live="polite">
-      <div class="steps" aria-label="Qadamlar">
+      <div class="steps" aria-label="3 qadamdan 3-si">
         <div class="step done" aria-label="1-qadam bajarildi">&#10003;</div>
         <div class="step-line"></div>
         <div class="step done" aria-label="2-qadam bajarildi">&#10003;</div>
         <div class="step-line"></div>
-        <div class="step" aria-label="3-qadam">3</div>
+        <div class="step" aria-label="3-qadam, hozirgi">3</div>
       </div>
       <p class="success-title">So'nggi qadam...</p>
       <p class="success-sub">Masterklassda qatnashish uchun, yopiq telegram<br>kanalimizga obuna bo'ling!</p>
       <div class="arrows" aria-hidden="true">
-        <span>&#8595;</span>
-        <span>&#8595;</span>
-        <span>&#8595;</span>
-        <span>&#8595;</span>
-        <span>&#8595;</span>
+        <span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span>
       </div>
-      <a class="tg-btn" href="https://t.me/+--U6A2UCiKY3ZGMy" target="_blank" rel="noopener noreferrer" aria-label="Telegram kanalga obuna bo'lish">
+      <a class="tg-btn" href="https://t.me/+--U6A2UCiKY3ZGMy" target="_blank" rel="noopener noreferrer">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
         OBUNA BO'LISH
       </a>
@@ -246,6 +213,12 @@ function submitPhone(){
     body:JSON.stringify({phone:'+998'+raw,date:new Date().toLocaleString('uz-UZ')})
   }).catch(function(){});
 }
+
+// Meta Pixel — sahifa yuklangandan keyin (LCP ga ta'sir qilmasin)
+window.addEventListener('load',function(){
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','929040389510053');fbq('track','PageView');
+});
 </script>
 </body>
 </html>
