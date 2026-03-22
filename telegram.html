@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Telegram kanalga qo'shiling va dars havolasini oling">
+<title>Telegram kanalga qo'shiling</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e02020;--font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
+html,body{background:#fff;color:#111;font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:100%;text-align:center}
+
+.steps{display:flex;align-items:center;justify-content:center;margin-bottom:32px}
+.step{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff}
+.step.done{background:var(--red);color:#fff;border-color:var(--red)}
+.step-line{width:44px;height:2.5px;background:var(--red)}
+
+.title{font-size:22px;font-weight:900;color:#111;margin-bottom:10px}
+.sub{font-size:14px;color:#444;line-height:1.6;margin-bottom:28px}
+
+.arrows{display:flex;justify-content:center;gap:8px;margin-bottom:24px}
+.arrows span{color:var(--red);font-size:22px;animation:arrowDown 1s ease-in-out infinite}
+.arrows span:nth-child(2){animation-delay:.15s}
+.arrows span:nth-child(3){animation-delay:.3s}
+.arrows span:nth-child(4){animation-delay:.45s}
+.arrows span:nth-child(5){animation-delay:.6s}
+@keyframes arrowDown{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(7px);opacity:1}}
+
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:12px;background:#229ED9;color:#fff;font-family:var(--font);font-size:17px;font-weight:800;text-decoration:none;border-radius:50px;padding:20px 24px;width:100%;animation:shake 2s ease-in-out infinite}
+@keyframes shake{0%,85%,100%{transform:translateX(0)}88%{transform:translateX(-5px)}91%{transform:translateX(5px)}94%{transform:translateX(-3px)}97%{transform:translateX(3px)}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="steps" aria-label="3 qadamdan 3-si">
+    <div class="step done" aria-label="1-qadam bajarildi">&#10003;</div>
+    <div class="step-line"></div>
+    <div class="step done" aria-label="2-qadam bajarildi">&#10003;</div>
+    <div class="step-line"></div>
+    <div class="step" aria-label="3-qadam, hozirgi">3</div>
+  </div>
+
+  <h1 class="title">So'nggi qadam...</h1>
+  <p class="sub">Masterklassda qatnashish uchun, yopiq telegram<br>kanalimizga obuna bo'ling!</p>
+
+  <div class="arrows" aria-hidden="true">
+    <span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span>
+  </div>
+
+  <a class="tg-btn" href="https://t.me/+--U6A2UCiKY3ZGMy" target="_blank" rel="noopener noreferrer">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
+    OBUNA BO'LISH
+  </a>
+</main>
+</body>
+</html>
