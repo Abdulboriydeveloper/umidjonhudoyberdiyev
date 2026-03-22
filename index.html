@@ -204,11 +204,10 @@ var SHEET_URL='https://script.google.com/macros/s/AKfycbxeDIu3I1geF1Rhd_8h90OYob
 function submitPhone(){
   var raw=document.getElementById('phoneInput').value.replace(/\D/g,'');
   if(raw.length<9){document.getElementById('errorMsg').style.display='block';return}
-  document.getElementById('formBlock').style.display='none';
-  document.getElementById('successBlock').classList.add('show');
   fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({phone:'+998'+raw,date:new Date().toLocaleString('uz-UZ')})
   }).catch(function(){});
+  window.location.href='/telegram.html';
 }
 
 // META PIXEL — foydalanuvchi birinchi harakat qilgandan keyin yuklanadi
