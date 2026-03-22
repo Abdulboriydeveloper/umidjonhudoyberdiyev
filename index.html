@@ -9,8 +9,8 @@
 <link rel="preload" href="umidaka2.webp" as="image" type="image/webp">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--red:#e02020;--bg:#0f0f0f;--font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
-html,body{background:var(--bg);color:#fff;font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;overflow-x:hidden}
+:root{--red:#e02020;--font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
+html,body{background:#0f0f0f;color:#fff;font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;overflow-x:hidden}
 
 .badge{display:flex;align-items:center;justify-content:center;gap:8px;margin:18px auto 0;width:fit-content;background:#1e1e1e;border:1px solid #444;border-radius:50px;padding:7px 18px;font-size:13px;font-weight:600;color:#ddd}
 .badge-dot{width:8px;height:8px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
@@ -44,17 +44,15 @@ html,body{background:var(--bg);color:#fff;font-family:var(--font);min-height:100
 .hint svg{transform:rotate(-90deg);animation:arrowUp 1s ease-in-out infinite}
 @keyframes arrowUp{0%,100%{transform:rotate(-90deg) translateX(0)}50%{transform:rotate(-90deg) translateX(-5px)}}
 
+/* ── MODAL ── */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;align-items:center;justify-content:center;padding:20px}
 .overlay.open{display:flex}
 .modal{background:#fff;border-radius:20px;padding:28px 24px 32px;width:100%;max-width:420px;position:relative;animation:popIn .2s ease-out}
 @keyframes popIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
-
-.close-btn{position:absolute;top:10px;right:12px;background:none;border:none;color:#333;font-size:24px;cursor:pointer;padding:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%}
-
+.close-btn{position:absolute;top:10px;right:12px;background:none;border:none;color:#333;font-size:24px;cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%}
 .form-title{font-size:22px;font-weight:900;color:#111;text-transform:uppercase;margin-bottom:6px}
 .form-sub{font-size:13px;color:#555;margin-bottom:20px;line-height:1.5}
 .field-label{font-size:13px;font-weight:600;color:#333;margin-bottom:6px;display:block}
-
 .phone-input-wrap{display:flex;align-items:center;border:2px solid #e0a800;border-radius:12px;padding:0 16px;margin-bottom:16px;background:#f9f9f9}
 .phone-input-wrap:focus-within{border-color:var(--red)}
 .flag{font-size:18px;margin-right:6px}
@@ -65,111 +63,127 @@ html,body{background:var(--bg);color:#fff;font-family:var(--font);min-height:100
 .submit-btn{width:100%;background:var(--red);color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-transform:uppercase;border:none;border-radius:50px;padding:18px;cursor:pointer}
 .error-msg{color:#c00;font-size:13px;font-weight:600;margin-top:-10px;margin-bottom:12px;display:none}
 
-.success-block{display:none;text-align:center}
-.success-block.show{display:block}
-.steps{display:flex;align-items:center;justify-content:center;margin-bottom:24px}
-.step{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff}
-.step.done{background:var(--red);color:#fff}
-.step-line{width:40px;height:2.5px;background:var(--red)}
-.success-title{font-size:20px;font-weight:900;color:#111;margin-bottom:8px}
-.success-sub{font-size:13px;color:#444;margin-bottom:24px;line-height:1.6}
+/* ── TELEGRAM PAGE (full screen, same domain) ── */
+#telegramPage{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#fff;
+  z-index:200;
+  align-items:center;
+  justify-content:center;
+  padding:32px 24px;
+  max-width:480px;
+  margin:0 auto;
+}
+#telegramPage.show{display:flex}
 
-.arrows{display:flex;justify-content:center;gap:6px;margin-bottom:20px}
-.arrows span{color:var(--red);font-size:20px;animation:arrowDown 1s ease-in-out infinite}
+.tg-card{width:100%;text-align:center}
+.steps{display:flex;align-items:center;justify-content:center;margin-bottom:32px}
+.step{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff}
+.step.done{background:var(--red);color:#fff}
+.step-line{width:44px;height:2.5px;background:var(--red)}
+.tg-title{font-size:24px;font-weight:900;color:#111;margin-bottom:10px}
+.tg-sub{font-size:14px;color:#444;line-height:1.6;margin-bottom:28px}
+.arrows{display:flex;justify-content:center;gap:8px;margin-bottom:24px}
+.arrows span{color:var(--red);font-size:22px;animation:arrowDown 1s ease-in-out infinite}
 .arrows span:nth-child(2){animation-delay:.15s}
 .arrows span:nth-child(3){animation-delay:.3s}
 .arrows span:nth-child(4){animation-delay:.45s}
 .arrows span:nth-child(5){animation-delay:.6s}
-@keyframes arrowDown{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:1}}
-
-.tg-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#229ED9;color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-decoration:none;border-radius:50px;padding:18px 20px;animation:shake 2s ease-in-out infinite}
+@keyframes arrowDown{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(7px);opacity:1}}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:12px;background:#229ED9;color:#fff;font-family:var(--font);font-size:17px;font-weight:800;text-decoration:none;border-radius:50px;padding:20px 24px;width:100%;border:none;cursor:pointer;animation:shake 2s ease-in-out infinite}
 </style>
 </head>
 <body>
 
-<div class="badge" role="status">
-  <span class="badge-dot" aria-hidden="true"></span>
-  <span>25-26-mart | Soat 20:00</span>
+<!-- ── LANDING ── -->
+<div id="landingPage">
+  <div class="badge" role="status">
+    <span class="badge-dot" aria-hidden="true"></span>
+    <span>25-26-mart | Soat 20:00</span>
+  </div>
+
+  <main>
+    <div class="hero">
+      <h1>Qanday qilib <span>QARZLARDAN QUTILIB</span></h1>
+      <p>MOLIYAVIY MUSTAQILLIKKA ERISHISH MUMKIN?</p>
+    </div>
+
+    <button class="cta-banner" onclick="openModal()">
+      2 kunlik BEPUL Onlayn darsimda<br>barcha sirlarini o'rganing!
+    </button>
+
+    <section class="person-section" aria-label="Kurs haqida ma'lumot">
+      <div class="person-bg" aria-hidden="true"></div>
+      <div class="bullet-list">
+        <p class="bullet-label">Bepul darsda siz:</p>
+        <ul style="list-style:none;padding:0">
+          <li class="bullet-item">Qarzdan qutilib <strong>qayta qarzga kirmaslik</strong> ning aniq usullari va ketma-ketliklarini</li>
+          <li class="bullet-item">Barcha xarajatlarni yopib <strong>daromad yig'ish va investitsiya qilish</strong> ilmini</li>
+          <li class="bullet-item">Shaxsiy va oilaviy maqsadlarga <strong>10 barobargacha</strong> tezroq erishish usullarini o'rganasiz</li>
+        </ul>
+      </div>
+      <div class="person-placeholder">
+        <img src="umidaka2.webp" alt="Kurs muallifi" width="200" height="260" fetchpriority="high" decoding="sync">
+      </div>
+    </section>
+
+    <div class="timer-wrap">
+      <div class="timer-box" id="timer" aria-live="polite" aria-label="Qolgan vaqt">02:00</div>
+      <p class="timer-label">Ro'yxatdan o'tish<br>yopilishiga qoldi</p>
+    </div>
+
+    <button class="main-btn" onclick="openModal()">BEPUL QATNASHISH</button>
+
+    <div class="hint" aria-hidden="true">
+      BEPUL qatnashish uchun bosing
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+  </main>
 </div>
 
-<main>
-  <div class="hero">
-    <h1>Qanday qilib <span>QARZLARDAN QUTILIB</span></h1>
-    <p>MOLIYAVIY MUSTAQILLIKKA ERISHISH MUMKIN?</p>
-  </div>
-
-  <button class="cta-banner" onclick="openModal()">
-    2 kunlik BEPUL Onlayn darsimda<br>barcha sirlarini o'rganing!
-  </button>
-
-  <section class="person-section" aria-label="Kurs haqida ma'lumot">
-    <div class="person-bg" aria-hidden="true"></div>
-    <div class="bullet-list">
-      <p class="bullet-label">Bepul darsda siz:</p>
-      <ul style="list-style:none;padding:0">
-        <li class="bullet-item">Qarzdan qutilib <strong>qayta qarzga kirmaslik</strong> ning aniq usullari va ketma-ketliklarini</li>
-        <li class="bullet-item">Barcha xarajatlarni yopib <strong>daromad yig'ish va investitsiya qilish</strong> ilmini</li>
-        <li class="bullet-item">Shaxsiy va oilaviy maqsadlarga <strong>10 barobargacha</strong> tezroq erishish usullarini o'rganasiz</li>
-      </ul>
-    </div>
-    <div class="person-placeholder">
-      <img src="umidaka2.webp" alt="Kurs muallifi" width="200" height="260" fetchpriority="high" decoding="sync">
-    </div>
-  </section>
-
-  <div class="timer-wrap">
-    <div class="timer-box" id="timer" aria-live="polite" aria-label="Qolgan vaqt">02:00</div>
-    <p class="timer-label">Ro'yxatdan o'tish<br>yopilishiga qoldi</p>
-  </div>
-
-  <button class="main-btn" onclick="openModal()">BEPUL QATNASHISH</button>
-
-  <div class="hint" aria-hidden="true">
-    BEPUL qatnashish uchun bosing
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </div>
-</main>
-
+<!-- ── MODAL ── -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal">
     <button class="close-btn" onclick="closeModal()" aria-label="Yopish">&#215;</button>
-
-    <div id="formBlock">
-      <p class="form-title" id="modalTitle">RO'YXATDAN O'TISH</p>
-      <p class="form-sub">Bepul darsda qatnashish uchun hoziroq ro'yxatdan o'ting</p>
-      <label class="field-label" for="phoneInput">Telefon raqam</label>
-      <div class="phone-input-wrap">
-        <span class="flag" aria-hidden="true">🇺🇿</span>
-        <span class="prefix-txt" aria-hidden="true">+998</span>
-        <div class="divider" aria-hidden="true"></div>
-        <input type="tel" class="phone-input" id="phoneInput"
-          placeholder="90 123 45 67" maxlength="12"
-          inputmode="numeric" autocomplete="tel"
-          oninput="formatPhone(this)"
-          aria-label="Telefon raqami, +998 dan keyin">
-      </div>
-      <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive">To'g'ri telefon raqamini kiriting</div>
-      <button class="submit-btn" onclick="submitPhone()">YUBORISH</button>
+    <p class="form-title" id="modalTitle">RO'YXATDAN O'TISH</p>
+    <p class="form-sub">Bepul darsda qatnashish uchun hoziroq ro'yxatdan o'ting</p>
+    <label class="field-label" for="phoneInput">Telefon raqam</label>
+    <div class="phone-input-wrap">
+      <span class="flag" aria-hidden="true">🇺🇿</span>
+      <span class="prefix-txt" aria-hidden="true">+998</span>
+      <div class="divider" aria-hidden="true"></div>
+      <input type="tel" class="phone-input" id="phoneInput"
+        placeholder="90 123 45 67" maxlength="12"
+        inputmode="numeric" autocomplete="tel"
+        oninput="formatPhone(this)"
+        aria-label="Telefon raqami, +998 dan keyin">
     </div>
+    <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive">To'g'ri telefon raqamini kiriting</div>
+    <button class="submit-btn" onclick="submitPhone()">YUBORISH</button>
+  </div>
+</div>
 
-    <div class="success-block" id="successBlock" aria-live="polite">
-      <div class="steps" aria-label="3 qadamdan 3-si">
-        <div class="step done" aria-label="1-qadam bajarildi">&#10003;</div>
-        <div class="step-line"></div>
-        <div class="step done" aria-label="2-qadam bajarildi">&#10003;</div>
-        <div class="step-line"></div>
-        <div class="step" aria-label="3-qadam">3</div>
-      </div>
-      <p class="success-title">So'nggi qadam...</p>
-      <p class="success-sub">Masterklassda qatnashish uchun, yopiq telegram<br>kanalimizga obuna bo'ling!</p>
-      <div class="arrows" aria-hidden="true">
-        <span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span>
-      </div>
-      <a class="tg-btn" href="/telegram.html">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
-        OBUNA BO'LISH
-      </a>
+<!-- ── TELEGRAM PAGE ── -->
+<div id="telegramPage" role="main" aria-label="Telegram kanalga qo'shilish">
+  <div class="tg-card">
+    <div class="steps" aria-label="3 qadamdan 3-si">
+      <div class="step done" aria-label="1-qadam bajarildi">&#10003;</div>
+      <div class="step-line"></div>
+      <div class="step done" aria-label="2-qadam bajarildi">&#10003;</div>
+      <div class="step-line"></div>
+      <div class="step" aria-label="3-qadam, hozirgi">3</div>
     </div>
+    <h1 class="tg-title">So'nggi qadam...</h1>
+    <p class="tg-sub">Masterklassda qatnashish uchun, yopiq telegram<br>kanalimizga obuna bo'ling!</p>
+    <div class="arrows" aria-hidden="true">
+      <span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span>
+    </div>
+    <a class="tg-btn" id="tgObuna" href="https://t.me/+--U6A2UCiKY3ZGMy" onclick="trackObuna()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
+      OBUNA BO'LISH
+    </a>
   </div>
 </div>
 
@@ -186,9 +200,9 @@ function openModal(){overlay.classList.add('open');document.body.style.overflow=
 function closeModal(){overlay.classList.remove('open');document.body.style.overflow=''}
 overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
-document.body.addEventListener('click',function(e){if(!overlay.classList.contains('open'))openModal()});
+document.body.addEventListener('click',function(e){if(!overlay.classList.contains('open')&&document.getElementById('telegramPage').style.display!=='flex')openModal()});
 
-// PHONE
+// PHONE FORMAT
 function formatPhone(el){
   var v=el.value.replace(/\D/g,'').substring(0,9),out='';
   if(v.length>0)out=v.substring(0,2);
@@ -199,29 +213,39 @@ function formatPhone(el){
   document.getElementById('errorMsg').style.display='none';
 }
 
-// SUBMIT
+// SUBMIT — sheets + telegram page ko'rsat
 var SHEET_URL='https://script.google.com/macros/s/AKfycbxeDIu3I1geF1Rhd_8h90OYobftqqb3e744Tr6Lp03SFNbJc1iN629hu9QZwHaYix_4BA/exec';
 function submitPhone(){
   var raw=document.getElementById('phoneInput').value.replace(/\D/g,'');
   if(raw.length<9){document.getElementById('errorMsg').style.display='block';return}
+  // Pixel — Lead event
+  if(typeof fbq!=='undefined')fbq('track','Lead');
+  // Sheets ga yuborish
   fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({phone:'+998'+raw,date:new Date().toLocaleString('uz-UZ')})
   }).catch(function(){});
-  window.location.href='/telegram.html';
+  // Modal yopish, Telegram sahifasini ko'rsatish
+  closeModal();
+  var tp=document.getElementById('telegramPage');
+  tp.classList.add('show');
+  document.body.style.overflow='hidden';
 }
 
-// META PIXEL — foydalanuvchi birinchi harakat qilgandan keyin yuklanadi
+// TELEGRAM tugmasi bosilganda Pixel event
+function trackObuna(){
+  if(typeof fbq!=='undefined')fbq('track','Subscribe');
+}
+
+// META PIXEL — birinchi harakat da yuklash
 var pixelLoaded=false;
 function loadPixel(){
   if(pixelLoaded)return;pixelLoaded=true;
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.defer=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init','929040389510053');fbq('track','PageView');
 }
-// Sahifaga birinchi touch/click/scroll da yuklash
 ['touchstart','mousedown','scroll'].forEach(function(ev){
   document.addEventListener(ev,loadPixel,{once:true,passive:true});
 });
-// Yoki 5 soniyadan keyin baribir yuklasin
 setTimeout(loadPixel,5000);
 </script>
 </body>
