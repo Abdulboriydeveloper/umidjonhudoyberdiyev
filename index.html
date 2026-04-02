@@ -10,11 +10,7 @@
 <!-- Preload LCP image -->
 <link rel="preload" href="umidaka2.webp" as="image" type="image/webp" fetchpriority="high">
 
-<!-- Non-blocking Google Fonts — display=optional prevents CLS -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=optional" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=optional"></noscript>
+
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -27,8 +23,8 @@
   --mid:#4a3a2a;
   --muted:#6b5a4a;
   --gold:#c49a3c;
-  --font:'Manrope',Georgia,sans-serif;
-  --serif:'Playfair Display',Georgia,serif;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
 }
 html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;overflow-x:hidden}
 
@@ -134,7 +130,7 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 <div id="landingPage">
   <div class="topbar">🎓 2 Kunlik Bepul Onlayn Dars — Joylar Cheklangan!</div>
 
-  <div class="badge" role="note">
+  <div class="badge" aria-label="Dars vaqti: 15-16-17 Aprel, soat 20:00">
     <span class="badge-dot" aria-hidden="true"></span>
     <span>15-16-17 Aprel · Soat 20:00</span>
   </div>
@@ -153,7 +149,7 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
     <section class="person-section" aria-label="Masterklassda o'rganiladigan mavzular">
       <div class="bullet-list">
         <p class="bullet-label" aria-hidden="true">Masterklassda siz:</p>
-        <ul aria-label="Masterklassda o'rganiladigan mavzular ro'yxati">
+        <ul>
           <li class="bullet-item">Qarzdan qutilib <strong>qayta kirmaslik</strong> ning aniq usullari</li>
           <li class="bullet-item">Xarajatlarni yopib <strong>daromad va investitsiya</strong> qilish ilmi</li>
           <li class="bullet-item">Maqsadlarga <strong>10 barobargacha</strong> tezroq erishish</li>
@@ -175,7 +171,7 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
     <div class="timer-section">
       <div class="timer-icon" aria-hidden="true">⏳</div>
       <div>
-        <div class="timer-box" id="timer" role="timer" aria-live="off" aria-label="Ro'yxatdan o'tish yopilishiga qolgan vaqt">02:00</div>
+        <div class="timer-box" id="timer" aria-label="Ro'yxatdan o'tish yopilishiga qolgan vaqt">02:00</div>
         <div class="timer-text">Ro'yxatdan o'tish yopilishiga qoldi</div>
       </div>
     </div>
@@ -224,7 +220,7 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 </div>
 
 <!-- ── TELEGRAM PAGE ── -->
-<div id="telegramPage" aria-label="Telegram kanalga qo'shilish">
+<div id="telegramPage" role="region" aria-label="Telegram kanalga qo'shilish">
   <div class="tg-card">
     <nav class="steps" aria-label="Ro'yxatdan o'tish bosqichlari — 3 dan 3-si">
       <div class="step done" aria-label="1-qadam bajarildi">✓</div>
