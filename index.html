@@ -7,9 +7,6 @@
 <meta name="description" content="2 kunlik BEPUL Onlayn darsda qarzlardan qutilib moliyaviy mustaqillikka erishing">
 <title>Qarzlardan Qutilib Moliyaviy Mustaqillikka Erishing</title>
 
-<!-- Preload LCP image -->
-<link rel="preload" href="umidaka2.webp" as="image" type="image/webp" fetchpriority="high">
-
 
 
 <style>
@@ -130,7 +127,7 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 <div id="landingPage">
   <div class="topbar">🎓 2 Kunlik Bepul Onlayn Dars — Joylar Cheklangan!</div>
 
-  <div class="badge" aria-label="Dars vaqti: 15-16-17 Aprel, soat 20:00">
+  <div class="badge">
     <span class="badge-dot" aria-hidden="true"></span>
     <span>15-16-17 Aprel · Soat 20:00</span>
   </div>
@@ -161,9 +158,8 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
           alt="Kurs muallifi — moliyaviy mustaqillik bo'yicha ekspert"
           width="185"
           height="270"
-          fetchpriority="high"
-          decoding="sync"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
         >
       </div>
     </section>
@@ -206,7 +202,6 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
         maxlength="12"
         inputmode="numeric"
         autocomplete="tel"
-        aria-label="Telefon raqami +998 dan keyin"
         aria-required="true"
         aria-describedby="errorMsg"
         oninput="formatPhone(this)"
