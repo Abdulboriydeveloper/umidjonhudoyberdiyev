@@ -3,12 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="theme-color" content="#faf7f4">
+<meta name="theme-color" content="#faf7f2">
 <meta name="description" content="2 kunlik BEPUL Onlayn darsda qarzlardan qutilib moliyaviy mustaqillikka erishing">
 <title>Qarzlardan Qutilib Moliyaviy Mustaqillikka Erishing</title>
+
+<!-- Preload LCP image -->
 <link rel="preload" href="umidaka2.webp" as="image" type="image/webp">
+
+<!-- Non-blocking Google Fonts (prevents render-blocking) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=swap"></noscript>
+
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -17,218 +25,100 @@
   --cream:#faf7f2;
   --warm:#f0ebe2;
   --dark:#1a1208;
-  --mid:#5a4a3a;
-  --muted:#9c8c7c;
+  --mid:#4a3a2a;
+  --muted:#6b5a4a;
   --gold:#c49a3c;
-  --font:'Manrope',sans-serif;
-  --serif:'Playfair Display',serif;
+  --font:'Manrope',Georgia,sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
 }
 html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-height:100vh;max-width:480px;margin:0 auto;overflow-x:hidden}
 
 /* ── TOP BAR ── */
-.topbar{
-  background:var(--red);
-  color:#fff;
-  text-align:center;
-  padding:10px 20px;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-}
+.topbar{background:var(--red);color:#fff;text-align:center;padding:10px 20px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase}
 
 /* ── BADGE ── */
-.badge{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  margin:20px auto 0;width:fit-content;
-  background:#fff;
-  border:1.5px solid #e0d8cc;
-  border-radius:50px;
-  padding:8px 20px;
-  font-size:12.5px;font-weight:700;color:var(--mid);
-  box-shadow:0 2px 12px rgba(0,0,0,.06);
-}
-.badge-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite}
+.badge{display:flex;align-items:center;justify-content:center;gap:8px;margin:20px auto 0;width:fit-content;background:#fff;border:1.5px solid #e0d8cc;border-radius:50px;padding:8px 20px;font-size:12.5px;font-weight:700;color:var(--mid);box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.badge-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:pulse 1.4s ease-in-out infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* ── HERO ── */
-.hero{padding:20px 22px 0;text-align:center;position:relative}
-.hero-tag{
-  display:inline-block;
-  background:var(--red-light);color:var(--red);
-  font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
-  padding:5px 14px;border-radius:4px;margin-bottom:14px;
-}
-.hero h1{
-  font-family:var(--serif);
-  font-size:18px;font-weight:900;line-height:1.12;
-  color:var(--dark);
-}
-.hero h1 em{color:var(--red);font-style:normal;font-size: 26px;}
-.hero-divider{
-  width:48px;height:3px;background:var(--gold);
-  margin:14px auto;border-radius:2px;
-}
-.hero p{
-  font-size:13.5px;font-weight:600;line-height:1.55;
-  color:var(--mid);
-}
+.hero{padding:20px 22px 0;text-align:center}
+.hero h1{font-family:var(--serif);font-size:18px;font-weight:900;line-height:1.15;color:var(--dark)}
+.hero h1 em{color:var(--red);font-style:normal;font-size:26px}
+.hero-divider{width:48px;height:3px;background:var(--gold);margin:14px auto;border-radius:2px}
+.hero p{font-size:13.5px;font-weight:600;line-height:1.55;color:var(--mid)}
 
 /* ── CTA BANNER ── */
 .cta-banner{
-  margin:20px 20px 0;
-  background:linear-gradient(135deg,#c8102e 0%,#a00820 100%);
+  margin:20px 20px 0;background:linear-gradient(135deg,#c8102e 0%,#a00820 100%);
   border-radius:16px;padding:16px 22px;text-align:center;
-  font-size:10px;font-weight:700;line-height:1.5;cursor:pointer;border:none;
+  font-size:14px;font-weight:700;line-height:1.5;cursor:pointer;border:none;
   width:calc(100% - 40px);color:#fff;font-family:var(--font);display:block;
-  box-shadow:0 6px 24px rgba(200,16,46,.28);
-  position:relative;overflow:hidden;
+  box-shadow:0 6px 24px rgba(200,16,46,.28);position:relative;overflow:hidden;
 }
-.cta-banner::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
-  transform:translateX(-100%);
-  animation:shimmer 2.5s ease-in-out infinite;
-}
+.cta-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%);animation:shimmer 2.5s ease-in-out infinite}
 @keyframes shimmer{to{transform:translateX(100%)}}
 
-/* ── PERSON SECTION ── */
+/* ── PERSON SECTION — fixed height prevents CLS ── */
 .person-section{
-  position:relative;margin-top:16px;
-  background:var(--warm);
-  border-radius:24px;
-  margin:16px 20px 0;
-  overflow:hidden;
-  min-height:280px;
+  position:relative;margin:16px 20px 0;background:var(--warm);
+  border-radius:24px;overflow:hidden;height:280px;contain:layout;
 }
-.person-section::after{
-  content:'';position:absolute;
-  right:0;top:0;width:55%;height:100%;
-  background:linear-gradient(135deg,rgba(200,16,46,.08) 0%,transparent 60%);
-  pointer-events:none;
-}
+.person-section::after{content:'';position:absolute;right:0;top:0;width:55%;height:100%;background:linear-gradient(135deg,rgba(200,16,46,.07) 0%,transparent 60%);pointer-events:none}
 .person-placeholder{position:absolute;right:0;bottom:0;width:185px;height:270px}
 .person-placeholder img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 
 .bullet-list{position:absolute;left:0;top:0;width:55%;z-index:1;padding:20px 16px 20px 20px}
-.bullet-label{
-  font-size:9px;font-weight:900;margin-bottom:12px;
-  text-transform:uppercase;letter-spacing:1.5px;color:var(--red);
-  border-left:3px solid var(--red);padding-left:8px;
-}
-.bullet-item{
-  margin-bottom:12px;font-size:12px;line-height:1.5;color:var(--mid);
-  position:relative;padding-left:16px;
-}
+.bullet-label{font-size:10px;font-weight:800;margin-bottom:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);border-left:3px solid var(--red);padding-left:8px}
+.bullet-item{margin-bottom:12px;font-size:12px;line-height:1.5;color:var(--mid);position:relative;padding-left:16px}
 .bullet-item::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:9px;top:2px}
 .bullet-item strong{color:var(--dark);font-weight:700}
 
 /* ── TIMER ── */
-.timer-section{
-  margin:20px 20px 0;
-  background:#fff;border-radius:16px;
-  padding:10px 20px;
-  display:flex;align-items:center;gap:16px;
-  border:1.5px solid #e8e0d4;
-  box-shadow:0 2px 12px rgba(0,0,0,.04);
-}
-.timer-icon{
-  width:44px;height:44px;background:var(--red-light);
-  border-radius:12px;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;font-size:20px;
-}
-.timer-box{
-  font-family:var(--serif);font-size:30px;font-weight:700;
-  color:var(--red);letter-spacing:2px;font-variant-numeric:tabular-nums;
-}
+.timer-section{margin:20px 20px 0;background:#fff;border-radius:16px;padding:10px 20px;display:flex;align-items:center;gap:16px;border:1.5px solid #e8e0d4;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.timer-icon{width:44px;height:44px;background:var(--red-light);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px}
+.timer-box{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--red);letter-spacing:2px;font-variant-numeric:tabular-nums}
 .timer-text{font-size:12px;font-weight:600;color:var(--muted);line-height:1.4;margin-top:2px}
 
 /* ── MAIN BTN ── */
-.main-btn{
-  display:block;margin:18px 20px 0;
-  background:var(--red);color:#fff;
-  font-family:var(--font);font-size:15px;font-weight:800;
-  text-transform:uppercase;letter-spacing:1.5px;border:none;
-  border-radius:50px;padding:19px 20px;width:calc(100% - 40px);cursor:pointer;
-  box-shadow:0 6px 24px rgba(200,16,46,.3);
-  animation:shake 2.8s ease-in-out infinite;
-}
+.main-btn{display:block;margin:18px 20px 0;background:var(--red);color:#fff;font-family:var(--font);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;border:none;border-radius:50px;padding:19px 20px;width:calc(100% - 40px);cursor:pointer;box-shadow:0 6px 24px rgba(200,16,46,.3);animation:shake 2.8s ease-in-out infinite}
 @keyframes shake{0%,82%,100%{transform:translateX(0)}85%{transform:translateX(-5px)}88%{transform:translateX(5px)}91%{transform:translateX(-3px)}94%{transform:translateX(3px)}}
-
-.hint{
-  text-align:center;font-size:12px;color:var(--muted);
-  margin:12px 0 28px;display:flex;align-items:center;justify-content:center;gap:6px;
-}
+.hint{text-align:center;font-size:12px;color:var(--muted);margin:12px 0 28px;display:flex;align-items:center;justify-content:center;gap:6px}
 .hint svg{transform:rotate(-90deg);animation:arrowUp 1s ease-in-out infinite}
 @keyframes arrowUp{0%,100%{transform:rotate(-90deg) translateX(0)}50%{transform:rotate(-90deg) translateX(-5px)}}
 
-/* ── TRUST BAR ── */
-.trust-bar{
-  display:flex;justify-content:center;gap:0;
-  margin:0 20px 28px;
-  background:#fff;border-radius:12px;
-  border:1.5px solid #e8e0d4;
-  overflow:hidden;
-}
-.trust-item{
-  flex:1;text-align:center;padding:14px 8px;
-  border-right:1.5px solid #e8e0d4;
-}
-.trust-item:last-child{border-right:none}
-.trust-num{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--red)}
-.trust-lbl{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
-
 /* ── MODAL ── */
-.overlay{display:none;position:fixed;inset:0;background:rgba(26,18,8,.7);z-index:100;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.overlay{display:none;position:fixed;inset:0;background:rgba(26,18,8,.75);z-index:100;align-items:center;justify-content:center;padding:20px}
 .overlay.open{display:flex}
 .modal{background:#fff;border-radius:24px;padding:30px 24px 32px;width:100%;max-width:420px;position:relative;animation:popIn .2s ease-out;border-top:4px solid var(--red)}
 @keyframes popIn{from{transform:scale(.93) translateY(10px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
-.close-btn{position:absolute;top:12px;right:14px;background:#f5f5f5;border:none;color:#555;font-size:18px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.close-btn{position:absolute;top:12px;right:14px;background:#f0ede8;border:none;color:#1a1208;font-size:20px;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-weight:700}
+.close-btn:hover{background:#e0dbd4}
 .form-title{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--dark);margin-bottom:6px}
 .form-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.5}
 .field-label{font-size:13px;font-weight:700;color:var(--dark);margin-bottom:8px;display:block}
-.phone-input-wrap{
-  display:flex;align-items:center;
-  border:2px solid #e0d8cc;border-radius:14px;
-  padding:0 16px;margin-bottom:16px;
-  background:#faf8f5;transition:border-color .2s;
-}
+.phone-input-wrap{display:flex;align-items:center;border:2px solid #c8bfb0;border-radius:14px;padding:0 16px;margin-bottom:16px;background:#faf8f5;transition:border-color .2s}
 .phone-input-wrap:focus-within{border-color:var(--red);background:#fff}
 .flag{font-size:18px;margin-right:6px}
 .prefix-txt{font-size:15px;font-weight:700;color:var(--dark);padding:15px 4px}
-.divider{width:1px;height:24px;background:#ddd;margin:0 10px;flex-shrink:0}
+.divider-v{width:1px;height:24px;background:#ccc;margin:0 10px;flex-shrink:0}
 .phone-input{background:none;border:none;outline:none;color:var(--dark);font-family:var(--font);font-size:16px;font-weight:600;padding:15px 0;width:100%}
-.phone-input::placeholder{color:#bbb}
+.phone-input::placeholder{color:#999}
 .submit-btn{width:100%;background:var(--red);color:#fff;font-family:var(--font);font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:1px;border:none;border-radius:50px;padding:18px;cursor:pointer;box-shadow:0 4px 16px rgba(200,16,46,.25)}
-.error-msg{color:var(--red);font-size:12.5px;font-weight:600;margin-top:-10px;margin-bottom:12px;display:none}
+.submit-btn:hover{background:#a00820}
+.error-msg{color:#b00020;font-size:12.5px;font-weight:700;margin-top:-10px;margin-bottom:12px;display:none}
 
 /* ── TELEGRAM PAGE ── */
-#telegramPage{
-  display:none;position:fixed;inset:0;
-  background:var(--cream);z-index:200;
-  align-items:center;justify-content:center;
-  padding:32px 24px;max-width:480px;margin:0 auto;
-}
+#telegramPage{display:none;position:fixed;inset:0;background:var(--cream);z-index:200;align-items:center;justify-content:center;padding:32px 24px;max-width:480px;margin:0 auto}
 #telegramPage.show{display:flex}
 .tg-card{width:100%;text-align:center}
-
-.steps{display:flex;align-items:center;justify-content:center;margin-bottom:32px}
-.step{
-  width:42px;height:42px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;font-weight:800;
-  border:2.5px solid var(--red);color:var(--red);background:#fff;
-}
+.steps{display:flex;align-items:center;justify-content:center;margin-bottom:32px;list-style:none;padding:0}
+.step{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff;flex-shrink:0}
 .step.done{background:var(--red);color:#fff}
 .step-line{width:40px;height:2.5px;background:var(--red)}
-
-.tg-icon{
-  width:72px;height:72px;background:#e8f4fb;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
-}
+.tg-icon{width:72px;height:72px;background:#ddf0fa;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
 .tg-title{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--dark);margin-bottom:10px}
 .tg-sub{font-size:14px;color:var(--mid);line-height:1.65;margin-bottom:28px}
-
 .arrows{display:flex;justify-content:center;gap:8px;margin-bottom:24px}
 .arrows span{color:var(--red);font-size:22px;animation:arrowDown 1s ease-in-out infinite}
 .arrows span:nth-child(2){animation-delay:.15s}
@@ -236,113 +126,124 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 .arrows span:nth-child(4){animation-delay:.45s}
 .arrows span:nth-child(5){animation-delay:.6s}
 @keyframes arrowDown{0%,100%{transform:translateY(0);opacity:.2}50%{transform:translateY(7px);opacity:1}}
-
-.tg-btn{
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  background:#229ED9;color:#fff;font-family:var(--font);font-size:16px;font-weight:800;
-  text-decoration:none;border-radius:50px;padding:20px 24px;width:100%;border:none;cursor:pointer;
-  box-shadow:0 6px 20px rgba(34,158,217,.3);
-  animation:shake 2.2s ease-in-out infinite;
-}
+.tg-btn{display:flex;align-items:center;justify-content:center;gap:12px;background:#229ED9;color:#fff;font-family:var(--font);font-size:16px;font-weight:800;text-decoration:none;border-radius:50px;padding:20px 24px;width:100%;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(34,158,217,.3);animation:shake 2.2s ease-in-out infinite}
 </style>
 </head>
 <body>
 
 <!-- ── LANDING ── -->
 <div id="landingPage">
-
   <div class="topbar">🎓 2 Kunlik Bepul Onlayn Dars — Joylar Cheklangan!</div>
 
-  <div class="badge" role="status">
+  <div class="badge" role="status" aria-live="polite">
     <span class="badge-dot" aria-hidden="true"></span>
     <span>15-16-17 Aprel · Soat 20:00</span>
   </div>
 
   <main>
     <div class="hero">
-      <!-- <span class="hero-tag">Bepul Onlayn Dars</span> -->
       <h1><em>QARZLARDAN QUTILIB</em> MOLIYAVIY MUSTAQIL BO'LISH FORMULASI</h1>
-      <div class="hero-divider"></div>
+      <div class="hero-divider" aria-hidden="true"></div>
       <p>Barcha sirlarni 2 kunlik bepul masterclassda o'rganing</p>
     </div>
 
-    <button class="cta-banner" onclick="openModal()">
+    <button class="cta-banner" id="ctaTop" type="button" aria-haspopup="dialog">
       ✦ BEPUL qatnashish uchun hoziroq ro'yxatdan o'ting ✦
     </button>
 
-    <section class="person-section" aria-label="Kurs haqida ma'lumot">
+    <section class="person-section" aria-label="Masterklassda o'rganiladigan mavzular">
       <div class="bullet-list">
-        <p class="bullet-label">Masterklassda siz:</p>
-        <ul style="list-style:none;padding:0">
+        <p class="bullet-label" aria-hidden="true">Masterklassda siz:</p>
+        <ul aria-label="Masterklassda o'rganiladigan mavzular ro'yxati">
           <li class="bullet-item">Qarzdan qutilib <strong>qayta kirmaslik</strong> ning aniq usullari</li>
           <li class="bullet-item">Xarajatlarni yopib <strong>daromad va investitsiya</strong> qilish ilmi</li>
           <li class="bullet-item">Maqsadlarga <strong>10 barobargacha</strong> tezroq erishish</li>
         </ul>
       </div>
       <div class="person-placeholder">
-        <img src="umidaka2.webp" alt="Kurs muallifi" width="185" height="270" fetchpriority="high" decoding="sync">
+        <img
+          src="umidaka2.webp"
+          alt="Kurs muallifi — moliyaviy mustaqillik bo'yicha ekspert"
+          width="185"
+          height="270"
+          fetchpriority="high"
+          decoding="sync"
+          loading="eager"
+        >
       </div>
     </section>
 
     <div class="timer-section">
-      <div class="timer-icon">⏳</div>
+      <div class="timer-icon" aria-hidden="true">⏳</div>
       <div>
-        <div class="timer-box" id="timer" aria-live="polite">02:00</div>
+        <div class="timer-box" id="timer" role="timer" aria-live="off" aria-label="Ro'yxatdan o'tish yopilishiga qolgan vaqt">02:00</div>
         <div class="timer-text">Ro'yxatdan o'tish yopilishiga qoldi</div>
       </div>
     </div>
 
-    <button class="main-btn" onclick="openModal()">🎓 BEPUL QATNASHISH</button>
+    <button class="main-btn" id="mainBtn" type="button" aria-haspopup="dialog">
+      🎓 BEPUL QATNASHISH
+    </button>
 
-    <div class="hint" aria-hidden="true">
+    <p class="hint" aria-hidden="true">
       Bosib ro'yxatdan o'ting — joylar cheklangan!
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </p>
   </main>
 </div>
 
 <!-- ── MODAL ── -->
-<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
   <div class="modal">
-    <button class="close-btn" onclick="closeModal()" aria-label="Yopish">&#215;</button>
-    <p class="form-title" id="modalTitle">Ro'yxatdan O'ting</p>
-    <p class="form-sub">Bepul masterclassda qatnashish uchun telefon raqamingizni kiriting</p>
-    <label class="field-label" for="phoneInput">📱 Telefon raqam</label>
+    <button class="close-btn" id="closeBtn" type="button" aria-label="Oynani yopish">&#215;</button>
+    <h2 class="form-title" id="modalTitle">Ro'yxatdan O'ting</h2>
+    <p class="form-sub" id="modalDesc">Bepul masterclassda qatnashish uchun telefon raqamingizni kiriting</p>
+    <label class="field-label" for="phoneInput">Telefon raqam</label>
     <div class="phone-input-wrap">
       <span class="flag" aria-hidden="true">🇺🇿</span>
       <span class="prefix-txt" aria-hidden="true">+998</span>
-      <div class="divider" aria-hidden="true"></div>
-      <input type="tel" class="phone-input" id="phoneInput"
-        placeholder="90 123 45 67" maxlength="12"
-        inputmode="numeric" autocomplete="tel"
+      <div class="divider-v" aria-hidden="true"></div>
+      <input
+        type="tel"
+        class="phone-input"
+        id="phoneInput"
+        placeholder="90 123 45 67"
+        maxlength="12"
+        inputmode="numeric"
+        autocomplete="tel"
+        aria-label="Telefon raqami +998 dan keyin"
+        aria-required="true"
+        aria-describedby="errorMsg"
         oninput="formatPhone(this)"
-        aria-label="Telefon raqami, +998 dan keyin">
+      >
     </div>
-    <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive">To'g'ri telefon raqamini kiriting</div>
-    <button class="submit-btn" onclick="submitPhone()">YUBORISH →</button>
+    <div class="error-msg" id="errorMsg" role="alert" aria-live="assertive">
+      ⚠ To'g'ri telefon raqamini kiriting
+    </div>
+    <button class="submit-btn" type="button" onclick="submitPhone()">YUBORISH →</button>
   </div>
 </div>
 
 <!-- ── TELEGRAM PAGE ── -->
-<div id="telegramPage" role="main" aria-label="Telegram kanalga qo'shilish">
+<div id="telegramPage" aria-label="Telegram kanalga qo'shilish">
   <div class="tg-card">
-    <div class="steps" aria-label="3 qadamdan 3-si">
-      <div class="step done">✓</div>
-      <div class="step-line"></div>
-      <div class="step done">✓</div>
-      <div class="step-line"></div>
-      <div class="step">3</div>
+    <ol class="steps" aria-label="Ro'yxatdan o'tish bosqichlari — 3 dan 3-si">
+      <li class="step done" aria-label="1-qadam bajarildi">✓</li>
+      <span class="step-line" aria-hidden="true"></span>
+      <li class="step done" aria-label="2-qadam bajarildi">✓</li>
+      <span class="step-line" aria-hidden="true"></span>
+      <li class="step" aria-label="3-qadam — joriy" aria-current="step">3</li>
+    </ol>
+    <div class="tg-icon" aria-hidden="true">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="#229ED9" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
     </div>
-    <div class="tg-icon">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="#229ED9"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
-    </div>
-    <h1 class="tg-title">So'nggi qadam...</h1>
+    <h1 class="tg-title" id="tgTitle" tabindex="-1">So'nggi qadam...</h1>
     <p class="tg-sub">Masterklassda qatnashish uchun yopiq Telegram kanalimizga obuna bo'ling!</p>
     <div class="arrows" aria-hidden="true">
       <span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span><span>&#8595;</span>
     </div>
-    <a class="tg-btn" id="tgObuna" href="https://t.me/+--U6A2UCiKY3ZGMy" onclick="trackObuna()">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
+    <a class="tg-btn" id="tgObuna" href="https://t.me/+--U6A2UCiKY3ZGMy" onclick="trackObuna()" aria-label="Telegram kanalga obuna bo'lish">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden="true" focusable="false"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
       OBUNA BO'LISH
     </a>
   </div>
@@ -352,17 +253,48 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 // TIMER
 var s=120,timerEl=document.getElementById('timer');
 function pad(n){return String(n).padStart(2,'0')}
-function tick(){if(s<=0){timerEl.textContent='00:00';return}s--;timerEl.textContent=pad(Math.floor(s/60))+':'+pad(s%60)}
+function tick(){
+  if(s<=0){timerEl.textContent='00:00';return}
+  s--;timerEl.textContent=pad(Math.floor(s/60))+':'+pad(s%60);
+}
 tick();setInterval(tick,1000);
 
-// MODAL
+// MODAL — only explicit button clicks; no body-click trap
 var overlay=document.getElementById('overlay');
-function openModal(){overlay.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){document.getElementById('phoneInput').focus()},250)}
-function closeModal(){overlay.classList.remove('open');document.body.style.overflow=''}
+var lastFocus=null;
+
+function openModal(){
+  lastFocus=document.activeElement;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){document.getElementById('phoneInput').focus()},50);
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+  if(lastFocus)lastFocus.focus();
+}
+
+document.getElementById('ctaTop').addEventListener('click',openModal);
+document.getElementById('mainBtn').addEventListener('click',openModal);
+document.getElementById('closeBtn').addEventListener('click',closeModal);
+
+// Close on backdrop click
 overlay.addEventListener('click',function(e){if(e.target===overlay)closeModal()});
+// Prevent modal content clicks from bubbling to backdrop
 document.querySelector('.modal').addEventListener('click',function(e){e.stopPropagation()});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
-document.body.addEventListener('click',function(e){if(!overlay.classList.contains('open')&&!document.getElementById('telegramPage').classList.contains('show'))openModal()});
+// Escape key
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'&&overlay.classList.contains('open'))closeModal();
+});
+// Focus trap inside modal
+document.querySelector('.modal').addEventListener('keydown',function(e){
+  if(e.key!=='Tab')return;
+  var focusable=this.querySelectorAll('button,input,[href],[tabindex]:not([tabindex="-1"])');
+  var first=focusable[0],last=focusable[focusable.length-1];
+  if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus()}}
+  else{if(document.activeElement===last){e.preventDefault();first.focus()}}
+});
 
 // PHONE FORMAT
 function formatPhone(el){
@@ -373,28 +305,42 @@ function formatPhone(el){
   if(v.length>7)out+=' '+v.substring(7,9);
   el.value=out;
   document.getElementById('errorMsg').style.display='none';
+  el.removeAttribute('aria-invalid');
 }
 
 // SUBMIT
 var SHEET_URL='https://script.google.com/macros/s/AKfycbxeDIu3I1geF1Rhd_8h90OYobftqqb3e744Tr6Lp03SFNbJc1iN629hu9QZwHaYix_4BA/exec';
 function submitPhone(){
   var raw=document.getElementById('phoneInput').value.replace(/\D/g,'');
-  if(raw.length<9){document.getElementById('errorMsg').style.display='block';return}
+  var errEl=document.getElementById('errorMsg');
+  var inp=document.getElementById('phoneInput');
+  if(raw.length<9){
+    errEl.style.display='block';
+    inp.setAttribute('aria-invalid','true');
+    inp.focus();
+    return;
+  }
   if(typeof fbq!=='undefined')fbq('track','Lead');
-  fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+  fetch(SHEET_URL,{
+    method:'POST',mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
     body:JSON.stringify({phone:'+998'+raw,date:new Date().toLocaleString('uz-UZ')})
   }).catch(function(){});
   closeModal();
   var tp=document.getElementById('telegramPage');
   tp.classList.add('show');
   document.body.style.overflow='hidden';
+  setTimeout(function(){
+    var h=document.getElementById('tgTitle');
+    if(h)h.focus();
+  },100);
 }
 
 function trackObuna(){
   if(typeof fbq!=='undefined')fbq('track','Subscribe');
 }
 
-// META PIXEL
+// META PIXEL — fully deferred, no impact on render
 var pixelLoaded=false;
 function loadPixel(){
   if(pixelLoaded)return;pixelLoaded=true;
