@@ -8,14 +8,13 @@
 <title>Qarzlardan Qutilib Moliyaviy Mustaqillikka Erishing</title>
 
 <!-- Preload LCP image -->
-<link rel="preload" href="umidaka2.webp" as="image" type="image/webp">
+<link rel="preload" href="umidaka2.webp" as="image" type="image/webp" fetchpriority="high">
 
-<!-- Non-blocking Google Fonts (prevents render-blocking) -->
+<!-- Non-blocking Google Fonts — display=optional prevents CLS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=optional" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;600;700;800&display=optional"></noscript>
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -112,7 +111,7 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 #telegramPage{display:none;position:fixed;inset:0;background:var(--cream);z-index:200;align-items:center;justify-content:center;padding:32px 24px;max-width:480px;margin:0 auto}
 #telegramPage.show{display:flex}
 .tg-card{width:100%;text-align:center}
-.steps{display:flex;align-items:center;justify-content:center;margin-bottom:32px;list-style:none;padding:0}
+.steps{display:flex;align-items:center;justify-content:center;margin-bottom:32px;padding:0}
 .step{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;border:2.5px solid var(--red);color:var(--red);background:#fff;flex-shrink:0}
 .step.done{background:var(--red);color:#fff}
 .step-line{width:40px;height:2.5px;background:var(--red)}
@@ -135,7 +134,7 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 <div id="landingPage">
   <div class="topbar">🎓 2 Kunlik Bepul Onlayn Dars — Joylar Cheklangan!</div>
 
-  <div class="badge" role="status" aria-live="polite">
+  <div class="badge" role="note">
     <span class="badge-dot" aria-hidden="true"></span>
     <span>15-16-17 Aprel · Soat 20:00</span>
   </div>
@@ -227,13 +226,13 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 <!-- ── TELEGRAM PAGE ── -->
 <div id="telegramPage" aria-label="Telegram kanalga qo'shilish">
   <div class="tg-card">
-    <ol class="steps" aria-label="Ro'yxatdan o'tish bosqichlari — 3 dan 3-si">
-      <li class="step done" aria-label="1-qadam bajarildi">✓</li>
-      <span class="step-line" aria-hidden="true"></span>
-      <li class="step done" aria-label="2-qadam bajarildi">✓</li>
-      <span class="step-line" aria-hidden="true"></span>
-      <li class="step" aria-label="3-qadam — joriy" aria-current="step">3</li>
-    </ol>
+    <nav class="steps" aria-label="Ro'yxatdan o'tish bosqichlari — 3 dan 3-si">
+      <div class="step done" aria-label="1-qadam bajarildi">✓</div>
+      <div class="step-line" aria-hidden="true"></div>
+      <div class="step done" aria-label="2-qadam bajarildi">✓</div>
+      <div class="step-line" aria-hidden="true"></div>
+      <div class="step" aria-label="3-qadam — joriy" aria-current="step">3</div>
+    </nav>
     <div class="tg-icon" aria-hidden="true">
       <svg width="36" height="36" viewBox="0 0 24 24" fill="#229ED9" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.47l-2.946-.924c-.64-.203-.658-.64.136-.95l11.5-4.432c.535-.194 1.004.12.832.943z"/></svg>
     </div>
