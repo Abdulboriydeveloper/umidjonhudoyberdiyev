@@ -42,11 +42,23 @@ html,body{background:var(--cream);color:var(--dark);font-family:var(--font);min-
 
 /* ── CTA BANNER ── */
 .cta-banner{
-  margin:20px 20px 0;background:linear-gradient(135deg,#c8102e 0%,#a00820 100%);
-  border-radius:16px;padding:16px 22px;text-align:center;
-  font-size:14px;font-weight:700;line-height:1.5;cursor:pointer;border:none;
-  width:calc(100% - 40px);color:#fff;font-family:var(--font);display:block;
-  box-shadow:0 6px 24px rgba(200,16,46,.28);position:relative;overflow:hidden;
+    margin: 20px 20px 0;
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px 22px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+    border: none;
+    width: calc(100% - 40px);
+    color: #c8102e;
+    font-family: var(--font);
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #c8102e;
 }
 .cta-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%);animation:shimmer 2.5s ease-in-out infinite}
 @keyframes shimmer{to{transform:translateX(100%)}}
